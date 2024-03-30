@@ -57,6 +57,7 @@ body {
    border: none;
    position: absolute;
    top:-120 px;
+   color:white;
 }
 
 .hours::after, .minutes::after {
