@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'led_sled_straightregular';
+    src: url('font/ledsledstraight-webfont.woff2') format('woff2'),
+         url('font/ledsledstraight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+body {
+    background-image: url("set2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'led_sled_straightregular';
+    font-weight: bold;
+    font-size: 4em;
+    color:white;
+    text-shadow: 1px 1px 2px pink;
+
+}
+
+.container {
+    /* backdrop-filter: blur(50px); */
+    background-color: rgba(0, 0, 0, 0.603);
+    border: double black 5px;
+    overflow: hidden;
+    outline: 0;
+    border-radius: 30px;
+    padding: 20px;
+}
+.clock {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.clock div {
+    width: 2em;
+}
+.clock .seconds {
+    width: 2.2em;
+}
+.clock .ampm {
+    width:auto;
+    margin-left: -1.0em;
+    font-size:0.6em;
+    align-self: center;
+
+}
+.clock button {
+   border-radius: 50%;
+   border: none;
+   position: absolute;
+   top:-120 px;
+}
+
+.hours::after, .minutes::after {
+    content: ':';
+    font-size: 1.5em;
+    
+}
+.minutes::after {
+    animation: dot 1s steps(1) infinite;
+}
+
+.seconds::after, .ampm::after {
+    content: '';
+    font-size: 1.5em;
+}
+
+@keyframes dot {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width:490px){
+    body {
+        font-size:2.1em;
+    }
+}
+
+@media screen and (max-width:270px){
+    body {
+        font-size:1.6em;
+    }
+}

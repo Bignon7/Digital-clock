@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="clock">
+            <div class="hours">00 &emsp14;</div>
+            <div class="minutes">00 &emsp14;</div>
+            <div class="seconds">00</div>
+            <div class="ampm">AM</div>
+            <span><b><button onclick="changebg();">.</button></b></span>
+        </div>
+    </div>
+    <script>
+        const changebg = () => {
+            let bg = document.querySelector('body').style.backgroundImage
+            let  new_bg = bg.includes('set2.jpg') ? `url('rise.jpg')`:`url('set2.jpg')`;
+            document.querySelector('body').style.backgroundImage = new_bg;
+        }
+        
+
+        setInterval( ()=> {
+            hr = document.querySelector('.hours');
+            min = document.querySelector('.minutes');
+            sec = document.querySelector('.seconds');
+            am = document.querySelector('.ampm');
+            let esp = document.createTextNode('\u2002');
+
+
+            let time = new Date()
+
+            let h = time.getHours();
+            let m = time.getMinutes();
+            let s = time.getSeconds();
+
+            am.innerHTML = h >= 12 ? 'PM':'AM';
+            h = h>12 ? h-12:h;
+                                                                                                                                 
+            hr.innerHTML = h<10 ? '0'+h:h;  // + ' '+' '+' '; ça marche aussi
+            hr.append(esp);
+
+            min.innerHTML = m<10 ? '0'+m:m;
+            min.append(esp.cloneNode(true));
+           
+            sec.innerHTML = s<10 ? '0'+s:s;
+            
+            }
+            
+        )
+        
+    </script>
+</body>
+</html>
